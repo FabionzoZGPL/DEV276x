@@ -1,0 +1,71 @@
+/* For this project you are going to program a game called "Odds and Evens". 
+The game is similar to rock paper scissors. It is played between two players, in your version it will be you versus the computer. 
+Each player will choose either "odds" or "evens", since you’re playing the computer you will get first pick. 
+Once you have chosen your side, you each choose a number of fingers to play- 0 to 5. 
+The winner is determined by whether the sum of your fingers is odd or even (depending on what you chose). */
+
+import java.util.*;
+public class OddsOrEvens {
+
+    public static void minusy(){
+        System.out.println();
+        for(int i = 0; i<40;i++){
+            System.out.print("-");
+        }
+        System.out.println();
+
+    }
+
+    public static void main(String[] args){
+        System.out.println("Let's play a game called \" Odds and Evens\". ");
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("What is your name?");
+        String name = in.nextLine();
+
+        System.out.print("Hi "+name+" which do you choose? Odds or Evens? ");
+        String choice1 = in.nextLine();
+        String choice2 = "";
+
+        if(choice1.endsWith("dds")){
+            choice2 = "evens";
+        } else {
+            choice2 = "odds";
+        }
+
+        System.out.print(name+" picked "+ choice1.toLowerCase()+"! The computer will be "+ choice2);
+
+        minusy();
+
+
+        System.out.print("How many \"fingers\" do you put out? ");
+        int fingers = in.nextInt();
+
+        Random rand = new Random();
+        int computer = rand.nextInt(6);
+
+        System.out.println("The computer plays "+computer+" \"fingers\"");
+
+        minusy();
+
+        int sum = fingers+computer;
+        System.out.println( "The computer number and your number gets "+sum);
+
+        String result = "";
+        if( sum%2 == 0) {
+            result = "evens";
+        }else {
+            result = "odds";
+        }
+
+
+        System.out.println(sum+" is ..... "+result);
+        minusy();
+
+        if(choice1.equals(result)){
+            System.out.println("You wins");
+        } else{
+            System.out.println("The computer wins");
+        }
+    }
+}
